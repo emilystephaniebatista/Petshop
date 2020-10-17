@@ -1,0 +1,48 @@
+﻿@page  "/Cliente/Cadastrar"
+@using System.Net.Http
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+
+<div class="card m-3">
+    <h4 class="card-header">Cadastro Cliente</h4>
+    <div class="card-body">
+        <EditForm Model="@Cliente" OnValidSubmit="HandleValidSubmit" @onreset="HandleReset">
+            <DataAnnotationsValidator />
+
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Nome</label>
+                    <InputText @bind-Value="Cliente.Nome" class="form-control" />
+                    <ValidationMessage For="@(() => Cliente.Nome)" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Numero de identificação</label>
+                    <InputText @bind-Value="Cliente.Numeroidentificacao" class="form-control" />
+                    <ValidationMessage For="@(() => Cliente.Numeroidentificacao)" />
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary mr-1">Salvar</button>
+                <button type="reset" class="btn btn-secondary">Cancel</button>
+            </div>
+        </EditForm>
+    </div>
+</div>
+
+@code { private Cliente Cliente = new Cliente();
+            private EditContext editContext { get; set; }
+
+            private async Task HandleValidSubmit()
+            {
+                var teste = await Http.PostAsJsonAsync("/api/Clientes", Cliente);
+                NavigationManager.NavigateTo("/Cliente/List");
+
+            }
+
+            private void HandleReset()
+            {
+                Cliente = new Cliente();
+                editContext = new EditContext(Cliente);
+            } }
