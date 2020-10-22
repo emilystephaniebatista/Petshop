@@ -13,6 +13,5 @@ namespace PetshopOA.Shared
 
         public int PetshopId { get; set; }
         public Petshop Petshop { get; set; }
-
     }
 }

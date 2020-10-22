@@ -11,6 +11,5 @@ namespace PetshopOA.Shared
         public string Endereco { get; set; }
 
         public virtual ICollection<Cliente> Clientes { get; set; }
-
     }
 }
