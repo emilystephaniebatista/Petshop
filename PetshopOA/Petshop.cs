@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PetshopOA.Shared
 {
@@ -8,5 +9,8 @@ namespace PetshopOA.Shared
         public string Nome { get; set; }
 
         public string Endereco { get; set; }
+
+        public virtual ICollection<Cliente> Clientes { get; set; }
+
     }
 }

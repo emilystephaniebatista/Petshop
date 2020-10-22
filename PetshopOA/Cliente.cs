@@ -10,5 +10,9 @@ namespace PetshopOA.Shared
         public string Nome { get; set; }
         
         public string Numeroidentificacao { get; set; }
+
+        public int PetshopId { get; set; }
+        public Petshop Petshop { get; set; }
+
     }
 }
