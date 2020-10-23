@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetshopOA.Shared", "PetshopOA\PetshopOA.Shared.csproj", "{22FC9D20-8608-4D8E-B605-A801B3637321}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetshopOA.Shared", "PetshopOA\PetshopOA.Shared.csproj", "{22FC9D20-8608-4D8E-B605-A801B3637321}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Petshop.Server", "Petshop.Server\Petshop.Server.csproj", "{8994ABA9-C45B-4DE2-AEC7-C9B5BA7B6E1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Petshop.Server", "Petshop.Server\Petshop.Server.csproj", "{8994ABA9-C45B-4DE2-AEC7-C9B5BA7B6E1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetShop.Client", "PetShop.Client\PetShop.Client.csproj", "{FA3FB574-0F57-4E6A-924F-005E2D175E9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetShop.Client", "PetShop.Client\PetShop.Client.csproj", "{FA3FB574-0F57-4E6A-924F-005E2D175E9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
