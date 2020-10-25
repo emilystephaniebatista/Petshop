@@ -1,4 +1,4 @@
-﻿@page  "/Cliente/Funcionario"
+﻿@page  "/Cliente/CadastroFuncionario"
 @using System.Net.Http
 @inject HttpClient Http
 @inject NavigationManager NavigationManager
@@ -6,21 +6,21 @@
 <div class="card m-3">
     <h4 class="card-header">Cadastro Funcionario</h4>
     <div class="card-body">
-        <EditForm Model="@Funcionario" OnValidSubmit="HandleValidSubmit" @onreset="HandleReset">
+        <EditForm Model="@Funcionarioteste" OnValidSubmit="HandleValidSubmit" @onreset="HandleReset">
             <DataAnnotationsValidator />
 
             <div class="form-row">
                 <div class="form-group col">
                     <label>Nome</label>
-                    <InputText @bind-Value="Funcionario.Nome" class="form-control" />
-                    <ValidationMessage For="@(() => Funcionario.Nome)" />
+                    <InputText @bind-Value="Funcionarioteste.Nome" class="form-control" />
+                    <ValidationMessage For="@(() => Funcionarioteste.Nome)" />
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col">
                     <label>Numero de identificação</label>
-                    <InputText @bind-Value="Funcionario.Numeroidentificacao" class="form-control" />
-                    <ValidationMessage For="@(() => Funcionario.Numeroidentificacao)" />
+                    <InputText @bind-Value="Funcionarioteste.Numeroidentificacao" class="form-control" />
+                    <ValidationMessage For="@(() => Funcionarioteste.Numeroidentificacao)" />
                 </div>
             </div>
             <div class="text-center">
@@ -31,18 +31,18 @@
     </div>
 </div>
 
-@code { private Funcionario Funcionario = new Funcionario();
+@code { private Funcionario Funcionarioteste = new Funcionario();
     private EditContext editContext { get; set; }
 
     private async Task HandleValidSubmit()
     {
-        var teste = await Http.PostAsJsonAsync("/api/Funcionarios", Funcionario);
+        var teste = await Http.PostAsJsonAsync("/api/Funcionarios", Funcionarioteste);
         NavigationManager.NavigateTo("/Funcionario/List");
 
     }
 
     private void HandleReset()
     {
-        Funcionario = new Funcionario();
-        editContext = new EditContext(Funcionario);
+        Funcionarioteste = new Funcionario();
+        editContext = new EditContext(Funcionarioteste);
     } }

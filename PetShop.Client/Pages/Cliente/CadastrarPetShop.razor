@@ -1,0 +1,48 @@
+﻿@page  "/Cliente/CadastrarPetshop"
+@using System.Net.Http
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+
+<div class="card m-3">
+    <h4 class="card-header">Cadastro PetShop</h4>
+    <div class="card-body">
+        <EditForm Model="@CadastrarPetshop" OnValidSubmit="HandleValidSubmit" @onreset="HandleReset">
+            <DataAnnotationsValidator />
+
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Numero de identificação</label>
+                    <InputNumber @bind-Value="CadastrarPetshop.Id" class="form-control" />
+                    <ValidationMessage For="@(() => CadastrarPetshop.Id)" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Nomepetshop</label>
+                    <InputText @bind-Value="CadastrarPetshop.Nomepetshop" class="form-control" />
+                    <ValidationMessage For="@(() => CadastrarPetshop.Nomepetshop)" />
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary mr-1">Salvar</button>
+                <button type="reset" class="btn btn-secondary">Cancel</button>
+            </div>
+        </EditForm>
+    </div>
+</div>
+
+@code { private CadastrarPetshop CadastrarPetshop = new CadastrarPetshop();
+    private EditContext editContext { get; set; }
+
+    private async Task HandleValidSubmit()
+    {
+        var teste = await Http.PostAsJsonAsync("/api/CadastrarPetshops", CadastrarPetshop);
+        NavigationManager.NavigateTo("/CadastrarPetshop/List");
+
+    }
+
+    private void HandleReset()
+    {
+        CadastrarPetshop = new CadastrarPetshop();
+        editContext = new EditContext(CadastrarPetshop);
+    } }
