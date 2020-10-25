@@ -1,4 +1,4 @@
-﻿@page  "/Cliente/CadastrarPetshop"
+﻿@page  "/Cliente/Petshop"
 @using System.Net.Http
 @inject HttpClient Http
 @inject NavigationManager NavigationManager
@@ -6,21 +6,28 @@
 <div class="card m-3">
     <h4 class="card-header">Cadastro PetShop</h4>
     <div class="card-body">
-        <EditForm Model="@CadastrarPetshop" OnValidSubmit="HandleValidSubmit" @onreset="HandleReset">
+        <EditForm Model="@Petshop" OnValidSubmit="HandleValidSubmit" @onreset="HandleReset">
             <DataAnnotationsValidator />
 
             <div class="form-row">
                 <div class="form-group col">
-                    <label>Numero de identificação</label>
-                    <InputNumber @bind-Value="CadastrarPetshop.Id" class="form-control" />
-                    <ValidationMessage For="@(() => CadastrarPetshop.Id)" />
+                    <label>Código do petshop</label>
+                    <InputNumber @bind-Value="Petshop.Id" class="form-control" />
+                    <ValidationMessage For="@(() => Petshop.Id)" />
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col">
-                    <label>Nomepetshop</label>
-                    <InputText @bind-Value="CadastrarPetshop.Nomepetshop" class="form-control" />
-                    <ValidationMessage For="@(() => CadastrarPetshop.Nomepetshop)" />
+                    <label>Nome do petshop</label>
+                    <InputText @bind-Value="Petshop.Nome" class="form-control" />
+                    <ValidationMessage For="@(() => Petshop.Nome)" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Endereço do petshop</label>
+                    <InputText @bind-Value="Petshop.Endereco" class="form-control" />
+                    <ValidationMessage For="@(() => Petshop.Endereco)" />
                 </div>
             </div>
             <div class="text-center">
@@ -31,18 +38,18 @@
     </div>
 </div>
 
-@code { private CadastrarPetshop CadastrarPetshop = new CadastrarPetshop();
+@code { private Petshop Petshop = new Petshop();
     private EditContext editContext { get; set; }
 
     private async Task HandleValidSubmit()
     {
-        var teste = await Http.PostAsJsonAsync("/api/CadastrarPetshops", CadastrarPetshop);
-        NavigationManager.NavigateTo("/CadastrarPetshop/List");
+        var teste = await Http.PostAsJsonAsync("/api/Petshops", Petshop);
+        NavigationManager.NavigateTo("/Petshop/List");
 
     }
 
     private void HandleReset()
     {
-        CadastrarPetshop = new CadastrarPetshop();
-        editContext = new EditContext(CadastrarPetshop);
+        Petshop = new Petshop();
+        editContext = new EditContext(Petshop);
     } }
