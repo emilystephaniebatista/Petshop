@@ -15,5 +15,6 @@ namespace Petshop.Server
         public DbSet<PetshopOA.Shared.Petshop> Petshops { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Funcionario> Funcionario { get; set; }
+        public DbSet<PetshopOA.Shared.Servico> Servico { get; set; }
     }
 }

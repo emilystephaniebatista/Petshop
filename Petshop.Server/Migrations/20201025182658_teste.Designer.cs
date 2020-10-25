@@ -8,8 +8,8 @@ using Petshop.Server;
 namespace Petshop.Server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20201025173319_funcionario")]
-    partial class funcionario
+    [Migration("20201025182658_teste")]
+    partial class teste
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -74,11 +74,50 @@ namespace Petshop.Server.Migrations
                     b.ToTable("Petshops");
                 });
 
+            modelBuilder.Entity("PetshopOA.Shared.Servico", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("ClienteId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Descricao")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<int>("FuncionarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClienteId");
+
+                    b.HasIndex("FuncionarioId");
+
+                    b.ToTable("Servico");
+                });
+
             modelBuilder.Entity("PetshopOA.Shared.Cliente", b =>
                 {
                     b.HasOne("PetshopOA.Shared.Petshop", "Petshop")
                         .WithMany("Clientes")
                         .HasForeignKey("PetshopId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("PetshopOA.Shared.Servico", b =>
+                {
+                    b.HasOne("PetshopOA.Shared.Cliente", "Cliente")
+                        .WithMany()
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PetshopOA.Shared.Funcionario", "Funcionario")
+                        .WithMany()
+                        .HasForeignKey("FuncionarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
