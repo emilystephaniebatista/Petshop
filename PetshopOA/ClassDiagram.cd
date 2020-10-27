@@ -20,10 +20,17 @@
       <Property Name="Clientes" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="PetshopOA.Shared.Servico">
-    <Position X="6.75" Y="0.5" Width="1.5" />
+  <Class Name="PetshopOA.Shared.Funcionario">
+    <Position X="7" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAQAAAAAABCAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Funcionario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetshopOA.Shared.Servico">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAAAQBAAAAABCAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Servico.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -31,11 +38,11 @@
       <Property Name="Funcionario" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="PetshopOA.Shared.Funcionario">
-    <Position X="7" Y="2.5" Width="1.5" />
+  <Class Name="PetshopOA.Shared.Contrato">
+    <Position X="6.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
-      <FileName>Funcionario.cs</FileName>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contrato.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
