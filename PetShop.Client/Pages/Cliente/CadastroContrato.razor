@@ -1,4 +1,4 @@
-﻿@page  "/Contrato/CadastrarContrato"
+﻿@page  "/Cliente/CadastroContrato"
 @using System.Net.Http
 @inject HttpClient Http
 @inject NavigationManager NavigationManager
@@ -19,8 +19,8 @@
             <div class="form-row">
                 <div class="form-group col">
                     <label>Numero de identificação</label>
-                    <InputNumber @bind-Value="Contrato.ClienteId" class="form-control" />
-                    <ValidationMessage For="@(() => Contrato.ClienteId)" />
+                    <InputNumber @bind-Value="Contrato.FuncionarioId" class="form-control" />
+                    <ValidationMessage For="@(() => Contrato.FuncionarioId)" />
                 </div>
             </div>
          
