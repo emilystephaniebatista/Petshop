@@ -17,5 +17,13 @@ namespace Petshop.Server
         public DbSet<Funcionario> Funcionario { get; set; }
         public DbSet<Servico> Servico { get; set; }
         public DbSet<Contrato> Contrato { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Funcionario>()
+                       .HasOne(f => f.Contrato)
+                       .WithOne(c => c.Funcionario)
+                       .HasForeignKey<Contrato>(c => c.FuncionarioId);
+        }
     }
 }

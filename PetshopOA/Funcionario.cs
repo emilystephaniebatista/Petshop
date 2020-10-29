@@ -11,7 +11,6 @@ namespace PetshopOA.Shared
 
         public string Numeroidentificacao { get; set; }
 
-        public int ContratoId { get; set; }
         public Contrato Contrato { get; set; }
     }
 }
