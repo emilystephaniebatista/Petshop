@@ -18,6 +18,7 @@ namespace Petshop.Server
         public DbSet<Servico> Servico { get; set; }
         public DbSet<Contrato> Contrato { get; set; }
 
+        //Essa parte é para fazer o relacionamento um para um
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Funcionario>()
